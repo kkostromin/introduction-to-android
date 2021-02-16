@@ -17,9 +17,9 @@
 #### [Сертификат будет доступен после успешнего окончании курса]()
 ____
 ### Практикум на Start Android:
-* [Урок 1.]() Ведение.
-* [Урок 2.]() Установка Android Studio
-* [Урок 3.]() Создание AVD. Первое приложение. Структура Android-проекта.
+* [Урок 1.](https://startandroid.ru/ru/uroki/vse-uroki-spiskom/4-urok-1-vvedenie.html) Ведение.
+* [Урок 2.](https://startandroid.ru/ru/uroki/vse-uroki-spiskom/9-urok-2-ustanovka-i-nastrojka-sredy-razrabotki.html) Установка Android Studio
+* [Урок 3.](https://startandroid.ru/ru/uroki/vse-uroki-spiskom/12-urok-3-sozdanie-avd-pervoe-prilozhenie-struktura-android-proekta.html) Создание AVD. Первое приложение. Структура Android-проекта.
 * [Урок 4.]() Компоненты экрана и их свойства
 * [Урок 5.]() layout-файл в Activity. XML представление. Смена ориентации экрана.
 * [Урок 6.]() Виды Layouts. Ключевые отличия и свойства.
