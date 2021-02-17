@@ -3,7 +3,7 @@
 Все выполненные задания публикуются на github ссылка на готовые задания отсылается преподавателю
 
 # Основные темы курса:
-* [Урок 1. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/1) Знакомство с Android
+* [Урок 1. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson1) Знакомство с Android
 * [Урок 2. 18 фев., 20:00]() Макеты приложений
 * [Урок 3. 25 фев., 20:00]() Активити. Жизненный цикл
 * [Урок 4. 1 марта., 20:00]() Ресурсы
