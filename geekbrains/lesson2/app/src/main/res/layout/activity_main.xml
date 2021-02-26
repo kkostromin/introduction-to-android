@@ -40,8 +40,8 @@
             android:text="@string/button_minus"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn3"
-            app:layout_constraintTop_toBottomOf="@+id/btnMultiply" />
+            app:layout_constraintStart_toEndOf="@id/btn3"
+            app:layout_constraintTop_toBottomOf="@id/btnMultiply" />
 
         <Button
             android:id="@+id/btn1"
@@ -51,7 +51,7 @@
             android:text="@string/button1"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn4" />
+            app:layout_constraintTop_toBottomOf="@id/btn4" />
 
         <Button
             android:id="@+id/btnDecimal"
@@ -61,7 +61,7 @@
             android:text="@string/button_pt"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn1" />
+            app:layout_constraintTop_toBottomOf="@id/btn1" />
 
         <Button
             android:id="@+id/btnDivide"
@@ -71,7 +71,7 @@
             android:text="@string/button_divide"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn9"
+            app:layout_constraintStart_toEndOf="@id/btn9"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -81,7 +81,7 @@
             android:layout_margin="10dp"
             android:text="@string/button9"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn8"
+            app:layout_constraintStart_toEndOf="@id/btn8"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -92,8 +92,8 @@
             android:text="@string/button_plus"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnEquals"
-            app:layout_constraintTop_toBottomOf="@+id/btnMinus" />
+            app:layout_constraintStart_toEndOf="@id/btnEquals"
+            app:layout_constraintTop_toBottomOf="@id/btnMinus" />
 
         <Button
             android:id="@+id/btn2"
@@ -102,8 +102,8 @@
             android:layout_margin="10dp"
             android:text="@string/button2"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn1"
-            app:layout_constraintTop_toBottomOf="@+id/btn5" />
+            app:layout_constraintStart_toEndOf="@id/btn1"
+            app:layout_constraintTop_toBottomOf="@id/btn5" />
 
         <Button
             android:id="@+id/btn4"
@@ -113,7 +113,7 @@
             android:text="@string/button4"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn7" />
+            app:layout_constraintTop_toBottomOf="@id/btn7" />
 
         <Button
             android:id="@+id/btn6"
@@ -122,8 +122,8 @@
             android:layout_margin="10dp"
             android:text="@string/button6"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn5"
-            app:layout_constraintTop_toBottomOf="@+id/btn7" />
+            app:layout_constraintStart_toEndOf="@id/btn5"
+            app:layout_constraintTop_toBottomOf="@id/btn7" />
 
         <Button
             android:id="@+id/btn0"
@@ -132,8 +132,8 @@
             android:layout_margin="10dp"
             android:text="@string/button0"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btnDecimal"
-            app:layout_constraintTop_toBottomOf="@+id/btn2" />
+            app:layout_constraintStart_toEndOf="@id/btnDecimal"
+            app:layout_constraintTop_toBottomOf="@id/btn2" />
 
         <Button
             android:id="@+id/btn8"
@@ -142,7 +142,7 @@
             android:layout_margin="10dp"
             android:text="@string/button3"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn7"
+            app:layout_constraintStart_toEndOf="@id/btn7"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -152,8 +152,8 @@
             android:layout_margin="10dp"
             android:text="@string/button_equal"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn0"
-            app:layout_constraintTop_toBottomOf="@+id/btn3" />
+            app:layout_constraintStart_toEndOf="@id/btn0"
+            app:layout_constraintTop_toBottomOf="@id/btn3" />
 
         <Button
             android:id="@+id/btn7"
@@ -172,8 +172,8 @@
             android:layout_margin="10dp"
             android:text="@string/button3"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn2"
-            app:layout_constraintTop_toBottomOf="@+id/btn6" />
+            app:layout_constraintStart_toEndOf="@id/btn2"
+            app:layout_constraintTop_toBottomOf="@id/btn6" />
 
         <Button
             android:id="@+id/btn5"
@@ -182,8 +182,8 @@
             android:layout_margin="10dp"
             android:text="@string/button5"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/btn4"
-            app:layout_constraintTop_toBottomOf="@+id/btn7" />
+            app:layout_constraintStart_toEndOf="@id/btn4"
+            app:layout_constraintTop_toBottomOf="@id/btn7" />
 
         <Button
             android:id="@+id/btnMultiply"
@@ -193,8 +193,8 @@
             android:text="@string/button_multiply"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn6"
-            app:layout_constraintTop_toBottomOf="@+id/btn7" />
+            app:layout_constraintStart_toEndOf="@id/btn6"
+            app:layout_constraintTop_toBottomOf="@id/btn7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
