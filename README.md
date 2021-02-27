@@ -7,7 +7,7 @@ ___
 
 # Основные темы курса:
 * [Урок 1.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson1) Знакомство с Android
-* [Урок 2. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/2) Макеты приложений
+* [Урок 2.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson2) Макеты приложений
 * [Урок 3. 25 фев., 20:00]() Активити. Жизненный цикл
 * [Урок 4. 1 марта., 20:00]() Ресурсы
 * [Урок 5. 4 марта., 20:00]() Интенты, активити
