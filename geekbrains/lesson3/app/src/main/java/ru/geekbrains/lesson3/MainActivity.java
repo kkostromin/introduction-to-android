@@ -38,11 +38,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if (savedInstanceState != null) {
-            mainScreen.setText(savedInstanceState.getString(KEY_MAIN_SCREEN));
-            memoryScreen.setText(savedInstanceState.getString(KEY_MEMORY_SCREEN));
-            equation = savedInstanceState.getString(KEY_EQUATION);
-        }
+        mainScreen.setText(savedInstanceState.getString(KEY_MAIN_SCREEN));
+        memoryScreen.setText(savedInstanceState.getString(KEY_MEMORY_SCREEN));
+        equation = savedInstanceState.getString(KEY_EQUATION);
     }
 
     public void press(View view) {
