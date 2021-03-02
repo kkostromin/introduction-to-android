@@ -9,6 +9,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * @author Zurbaevi Nika
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String KEY_MAIN_SCREEN = "mainScreen";
