@@ -1,0 +1,12 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Lesson5" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/fuchsia</item>
+        <item name="colorOnPrimary">@color/colorPrimary</item>
+
+        <item name="android:windowBackground">@color/coral</item>
+        <item name="primaryTitleColor">@color/dark_orange</item>
+    </style>
+</resources>
