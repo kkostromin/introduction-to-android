@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson5;
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,23 +11,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 
 /**
  * @author Zurbaevi Nika
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static final String MY_PREFERENCES = "nightModePreferences";
-    public static final String KEY_NIGHT_MODE = "nightMode";
-    private static final String KEY_MAIN_SCREEN = "mainScreen";
-    private static final String KEY_MEMORY_SCREEN = "memoryScreen";
-    private static final String KEY_EQUATION = "equation";
     SharedPreferences sharedPreferences;
 
     TextView mainScreen;
     TextView memoryScreen;
-    SwitchCompat changeTheme;
+    Button settings;
     String equation = "";
 
     @Override
@@ -35,37 +29,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(Constants.MY_PREFERENCES, MODE_PRIVATE);
 
-        changeTheme = findViewById(R.id.change_theme);
+        settings = findViewById(R.id.settings);
         mainScreen = findViewById(R.id.main_screen);
         memoryScreen = findViewById(R.id.memory_screen);
 
-        checkNightModeActivated();
-
-        changeTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                saveNightModeState(true);
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                saveNightModeState(false);
-            }
-            recreate();
+        settings.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivityForResult(intent, RESULT_OK);
         });
+
+        checkNightModeActivated();
     }
 
-    private void saveNightModeState(boolean nightMode) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(KEY_NIGHT_MODE, nightMode).apply();
-    }
 
     public void checkNightModeActivated() {
-        if (sharedPreferences.getBoolean(KEY_NIGHT_MODE, false)) {
-            changeTheme.setChecked(true);
+        if (sharedPreferences.getBoolean(Constants.KEY_NIGHT_MODE, false)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
-            changeTheme.setChecked(false);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
     }
@@ -73,17 +55,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(KEY_MAIN_SCREEN, mainScreen.getText().toString());
-        outState.putString(KEY_MEMORY_SCREEN, memoryScreen.getText().toString());
-        outState.putString(KEY_EQUATION, equation);
+        outState.putString(Constants.KEY_MAIN_SCREEN, mainScreen.getText().toString());
+        outState.putString(Constants.KEY_MEMORY_SCREEN, memoryScreen.getText().toString());
+        outState.putString(Constants.KEY_EQUATION, equation);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mainScreen.setText(savedInstanceState.getString(KEY_MAIN_SCREEN));
-        memoryScreen.setText(savedInstanceState.getString(KEY_MEMORY_SCREEN));
-        equation = savedInstanceState.getString(KEY_EQUATION);
+        mainScreen.setText(savedInstanceState.getString(Constants.KEY_MAIN_SCREEN));
+        memoryScreen.setText(savedInstanceState.getString(Constants.KEY_MEMORY_SCREEN));
+        equation = savedInstanceState.getString(Constants.KEY_EQUATION);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != RESULT_CANCELED) {
+            super.onActivityResult(requestCode, resultCode, data);
+        } else if (resultCode == RESULT_OK) {
+            saveNightModeState(data.getExtras().getBoolean(Constants.KEY_NIGHT_MODE));
+            recreate();
+        }
+    }
+
+    private void saveNightModeState(boolean nightMode) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(Constants.KEY_NIGHT_MODE, nightMode).apply();
     }
 
     public void press(View view) {

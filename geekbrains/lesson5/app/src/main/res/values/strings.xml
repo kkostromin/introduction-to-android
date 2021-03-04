@@ -18,6 +18,7 @@
     <string name="button_equal">=</string>
     <string name="theme_mode">Theme mode dark/light</string>
     <string name="tools_text_text_view">0.0</string>
+    <string name="settings">Settings</string>
     <dimen name="margin">8dp</dimen>
     <dimen name="textSize">42sp</dimen>
 </resources>
