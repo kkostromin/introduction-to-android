@@ -34,7 +34,7 @@ public class Calculator {
         double total = 0;
         String operator = "+";
         for (String value : inputs) {
-            if (value.matches("([+\\-×÷])")) {
+            if (value.matches("([+\\-x/])")) {
                 operator = value;
             } else if (!value.equals("=")) {
                 switch (operator) {
