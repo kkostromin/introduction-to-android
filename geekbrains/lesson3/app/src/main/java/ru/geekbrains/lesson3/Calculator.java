@@ -8,10 +8,9 @@ public class Calculator {
     private TextView memoryScreen;
     private String equation = "";
 
-    public Calculator(TextView mainScreen, TextView memoryScreen, String equation) {
+    public Calculator(TextView mainScreen, TextView memoryScreen) {
         this.mainScreen = mainScreen;
         this.memoryScreen = memoryScreen;
-        this.equation = equation;
     }
 
     public void addToEquation(String key) {
@@ -61,5 +60,13 @@ public class Calculator {
             }
         }
         return String.valueOf(total);
+    }
+
+    public String getEquation() {
+        return equation;
+    }
+
+    public void setEquation(String equation) {
+        this.equation = equation;
     }
 }

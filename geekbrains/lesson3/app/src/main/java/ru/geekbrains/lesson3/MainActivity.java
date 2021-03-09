@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mainScreen;
     private TextView memoryScreen;
-    private String equation = "";
     private Calculator calculator;
 
     @Override
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainScreen = findViewById(R.id.main_screen);
         memoryScreen = findViewById(R.id.memory_screen);
-        calculator = new Calculator(mainScreen, memoryScreen, equation);
+        calculator = new Calculator(mainScreen, memoryScreen);
     }
 
     @Override
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString(KEY_MAIN_SCREEN, mainScreen.getText().toString());
         outState.putString(KEY_MEMORY_SCREEN, memoryScreen.getText().toString());
-        outState.putString(KEY_EQUATION, equation);
+        outState.putString(KEY_EQUATION, calculator.getEquation());
     }
 
     @Override
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         mainScreen.setText(savedInstanceState.getString(KEY_MAIN_SCREEN));
         memoryScreen.setText(savedInstanceState.getString(KEY_MEMORY_SCREEN));
-        equation = savedInstanceState.getString(KEY_EQUATION);
+        calculator.setEquation(savedInstanceState.getString(KEY_EQUATION));
     }
 
     public void press(View view) {
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_8:
             case R.id.button_9:
             case R.id.button_0: {
-                String last = !equation.isEmpty() ? equation.substring(equation.length() - 3) : "";
+                String last = !calculator.getEquation().isEmpty() ? calculator.getEquation().substring(calculator.getEquation().length() - 3) : "";
                 if (last.contains("=")) {
                     Toast.makeText(this, "Must enter an operator first", Toast.LENGTH_LONG).show();
                     break;
@@ -74,13 +73,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_minus:
             case R.id.button_divide:
             case R.id.button_multiply: {
-                if (!equation.isEmpty() || !input.isEmpty()) {
+                if (!calculator.getEquation().isEmpty() || !input.isEmpty()) {
                     calculator.addToEquation(button.getText().toString());
                 }
                 break;
             }
             case R.id.button_equal: {
-                if (!equation.isEmpty() || !input.isEmpty()) {
+                if (!calculator.getEquation().isEmpty() || !input.isEmpty()) {
                     calculator.addToEquation(button.getText().toString());
                     mainScreen.setText(calculator.calculate());
                 }
@@ -91,6 +90,6 @@ public class MainActivity extends AppCompatActivity {
     public void clear(View view) {
         memoryScreen.setText("");
         mainScreen.setText("");
-        equation = "";
+        calculator.setEquation("");
     }
 }
