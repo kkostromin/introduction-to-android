@@ -17,12 +17,13 @@ import androidx.appcompat.app.AppCompatDelegate;
  */
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
 
-    TextView mainScreen;
-    TextView memoryScreen;
-    Button settings;
-    String equation = "";
+    private TextView mainScreen;
+    private TextView memoryScreen;
+    private Button settings;
+
+    private Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         settings = findViewById(R.id.settings);
         mainScreen = findViewById(R.id.main_screen);
         memoryScreen = findViewById(R.id.memory_screen);
+
+        calculator = new Calculator(mainScreen, memoryScreen);
 
         settings.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString(Constants.KEY_MAIN_SCREEN, mainScreen.getText().toString());
         outState.putString(Constants.KEY_MEMORY_SCREEN, memoryScreen.getText().toString());
-        outState.putString(Constants.KEY_EQUATION, equation);
+        outState.putString(Constants.KEY_EQUATION, calculator.getEquation());
     }
 
     @Override
@@ -65,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         mainScreen.setText(savedInstanceState.getString(Constants.KEY_MAIN_SCREEN));
         memoryScreen.setText(savedInstanceState.getString(Constants.KEY_MEMORY_SCREEN));
-        equation = savedInstanceState.getString(Constants.KEY_EQUATION);
+        calculator.setEquation(savedInstanceState.getString(Constants.KEY_EQUATION));
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -86,95 +90,46 @@ public class MainActivity extends AppCompatActivity {
     public void press(View view) {
         String input = mainScreen.getText().toString();
         Button button = (Button) view;
-        String key = button.getText().toString();
-        switch (key) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
-            case "0": {
-                String last = !equation.isEmpty() ? equation.substring(equation.length() - 3) : "";
+        switch (button.getId()) {
+            case R.id.button_1:
+            case R.id.button_2:
+            case R.id.button_3:
+            case R.id.button_4:
+            case R.id.button_5:
+            case R.id.button_6:
+            case R.id.button_7:
+            case R.id.button_8:
+            case R.id.button_9:
+            case R.id.button_0: {
+                String last = !calculator.getEquation().isEmpty() ? calculator.getEquation().substring(calculator.getEquation().length() - 3) : "";
                 if (last.contains("=")) {
                     Toast.makeText(this, "Must enter an operator first", Toast.LENGTH_LONG).show();
                     break;
                 }
-                mainScreen.setText(String.format("%s%s", input, key));
+                mainScreen.setText(String.format("%s%s", input, button.getText().toString()));
                 break;
             }
-            case "+":
-            case "-":
-            case "/":
-            case "x": {
-                if (!equation.isEmpty() || !input.isEmpty()) {
-                    addToEquation(key);
+            case R.id.button_plus:
+            case R.id.button_minus:
+            case R.id.button_divide:
+            case R.id.button_multiply: {
+                if (!calculator.getEquation().isEmpty() || !input.isEmpty()) {
+                    calculator.addToEquation(button.getText().toString());
                 }
                 break;
             }
-            case "=": {
-                if (!equation.isEmpty() || !input.isEmpty()) {
-                    addToEquation(key);
-                    mainScreen.setText(calculate());
+            case R.id.button_equal: {
+                if (!calculator.getEquation().isEmpty() || !input.isEmpty()) {
+                    calculator.addToEquation(button.getText().toString());
+                    mainScreen.setText(calculator.calculate());
                 }
             }
         }
-    }
-
-    public void addToEquation(String key) {
-        String input = mainScreen.getText().toString();
-        String operation = String.format(" %s ", key);
-        if (equation.length() > 3 && equation.endsWith(" ") && input.equals("")) {
-            equation = equation.substring(0, equation.length() - 3);
-        }
-        equation = String.format("%s%s%s", equation, input, operation);
-        memoryScreen.setText(equation);
-        mainScreen.setText("");
-    }
-
-    private boolean matches(String regex) {
-        for (int i = 0; i < regex.length(); i++) {
-            if (regex.charAt(i) != '+' && regex.charAt(i) != '-' && regex.charAt(i) != '/' && regex.charAt(i) != 'x') {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public String calculate() {
-        String[] equations = equation.split(" = ");
-        String[] inputs = equations[equations.length - 1].split(" ");
-        double total = 0;
-        String operator = "+";
-        for (String value : inputs) {
-            if (matches(value)) {
-                operator = value;
-            } else if (!value.equals("=")) {
-                switch (operator) {
-                    case "+":
-                        total += Double.parseDouble(value);
-                        break;
-                    case "-":
-                        total -= Double.parseDouble(value);
-                        break;
-                    case "x":
-                        total *= Double.parseDouble(value);
-                        break;
-                    case "/":
-                        total /= Double.parseDouble(value);
-                        break;
-                }
-            }
-        }
-        return String.valueOf(total);
     }
 
     public void clear(View view) {
         memoryScreen.setText("");
         mainScreen.setText("");
-        equation = "";
+        calculator.setEquation("");
     }
 }

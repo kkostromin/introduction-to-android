@@ -16,10 +16,10 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
  */
 public class SettingsActivity extends AppCompatActivity {
 
-    public static final String MY_PREFERENCES = "nightModePreferences";
-    public static final String KEY_NIGHT_MODE = "nightMode";
-    SharedPreferences sharedPreferences;
-    SwitchMaterial changeTheme;
+    private static final String MY_PREFERENCES = "nightModePreferences";
+    private static final String KEY_NIGHT_MODE = "nightMode";
+    private SharedPreferences sharedPreferences;
+    private SwitchMaterial changeTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

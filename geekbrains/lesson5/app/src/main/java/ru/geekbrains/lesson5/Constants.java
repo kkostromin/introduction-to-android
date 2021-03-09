@@ -1,5 +1,8 @@
 package ru.geekbrains.lesson5;
 
+/**
+ * @author Zurbaevi Nika
+ */
 public interface Constants {
     String MY_PREFERENCES = "nightModePreferences";
     String KEY_NIGHT_MODE = "nightMode";
