@@ -213,8 +213,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
-        android:layout_width="81dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/button_margin"
         android:onClick="press"
         android:text="@string/button_0"
