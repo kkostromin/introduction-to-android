@@ -18,9 +18,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_MEMORY_SCREEN = "memoryScreen";
     private static final String KEY_EQUATION = "equation";
 
-    TextView mainScreen;
-    TextView memoryScreen;
-    String equation = "";
+    private TextView mainScreen;
+    private TextView memoryScreen;
+    private String equation = "";
+    private Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainScreen = findViewById(R.id.main_screen);
         memoryScreen = findViewById(R.id.memory_screen);
+        calculator = new Calculator(mainScreen, memoryScreen, equation);
     }
 
     @Override
@@ -49,91 +51,41 @@ public class MainActivity extends AppCompatActivity {
     public void press(View view) {
         String input = mainScreen.getText().toString();
         Button button = (Button) view;
-        String key = button.getText().toString();
-        switch (key) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
-            case "0": {
+        switch (view.getId()) {
+            case R.id.button_1:
+            case R.id.button_2:
+            case R.id.button_3:
+            case R.id.button_4:
+            case R.id.button_5:
+            case R.id.button_6:
+            case R.id.button_7:
+            case R.id.button_8:
+            case R.id.button_9:
+            case R.id.button_0: {
                 String last = !equation.isEmpty() ? equation.substring(equation.length() - 3) : "";
                 if (last.contains("=")) {
                     Toast.makeText(this, "Must enter an operator first", Toast.LENGTH_LONG).show();
                     break;
                 }
-                mainScreen.setText(String.format("%s%s", input, key));
+                mainScreen.setText(String.format("%s%s", input, button.getText().toString()));
                 break;
             }
-            case "+":
-            case "-":
-            case "/":
-            case "x": {
+            case R.id.button_plus:
+            case R.id.button_minus:
+            case R.id.button_divide:
+            case R.id.button_multiply: {
                 if (!equation.isEmpty() || !input.isEmpty()) {
-                    addToEquation(key);
+                    calculator.addToEquation(button.getText().toString());
                 }
                 break;
             }
-            case "=": {
+            case R.id.button_equal: {
                 if (!equation.isEmpty() || !input.isEmpty()) {
-                    addToEquation(key);
-                    mainScreen.setText(calculate());
+                    calculator.addToEquation(button.getText().toString());
+                    mainScreen.setText(calculator.calculate());
                 }
             }
         }
-    }
-
-    public void addToEquation(String key) {
-        String input = mainScreen.getText().toString();
-        String operation = String.format(" %s ", key);
-        if (equation.length() > 3 && equation.endsWith(" ") && input.equals("")) {
-            equation = equation.substring(0, equation.length() - 3);
-        }
-        equation = String.format("%s%s%s", equation, input, operation);
-        memoryScreen.setText(equation);
-        mainScreen.setText("");
-    }
-
-    private boolean matches(String regex) {
-        for (int i = 0; i < regex.length(); i++) {
-            if (regex.charAt(i) != '+' && regex.charAt(i) != '-' && regex.charAt(i) != '/' && regex.charAt(i) != 'x') {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public String calculate() {
-        String[] equations = equation.split(" = ");
-        String currentEquation = equations[equations.length - 1];
-        String[] inputs = currentEquation.split(" ");
-        double total = 0;
-        String operator = "+";
-        for (String value : inputs) {
-            if (matches(value)) {
-                operator = value;
-            } else if (!value.equals("=")) {
-                switch (operator) {
-                    case "+":
-                        total += Double.parseDouble(value);
-                        break;
-                    case "-":
-                        total -= Double.parseDouble(value);
-                        break;
-                    case "x":
-                        total *= Double.parseDouble(value);
-                        break;
-                    case "/":
-                        total /= Double.parseDouble(value);
-                        break;
-                }
-            }
-        }
-        return String.valueOf(total);
     }
 
     public void clear(View view) {
