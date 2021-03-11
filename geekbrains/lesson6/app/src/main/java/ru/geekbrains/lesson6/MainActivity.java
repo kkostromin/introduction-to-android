@@ -1,9 +1,12 @@
 package ru.geekbrains.lesson6;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * @author Zurbaevi Nika
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
