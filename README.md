@@ -10,8 +10,8 @@ ___
 * [Урок 2.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson2) Макеты приложений
 * [Урок 3.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson3) Активити. Жизненный цикл
 * [Урок 4.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson4) Ресурсы
-* [Урок 5. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/5) Интенты, активити
-* [Урок 6. 11 марта., 20:00]() Фрагменты
+* [Урок 5.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson4) Интенты, активити
+* [Урок 6. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/6) Фрагменты
 * [Урок 7. 15 янв., 20:00]() Навигация через фрагменты. Основное меню. Боковое навигационное меню
 * [Урок 8. 18 янв., 20:00]() Списки. Списковые элементы
 * [Урок 9. 22 янв., 20:00]() Расширенные возможности списка. Контекстное меню. DatePicker
