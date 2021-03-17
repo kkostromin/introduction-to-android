@@ -13,6 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.navigation.NavigationView;
+
 /**
  * @author Zurbaevi Nika
  */
@@ -33,6 +35,16 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawer.addDrawerListener(toggle);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_about) {
+                Toast.makeText(MainActivity.this, "About", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+            }
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        });
         toggle.syncState();
     }
 
