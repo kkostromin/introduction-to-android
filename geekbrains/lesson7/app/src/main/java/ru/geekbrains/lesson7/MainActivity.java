@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        initStartFragment();
+        if(savedInstanceState == null) {
+           initStartFragment();
+        }
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
