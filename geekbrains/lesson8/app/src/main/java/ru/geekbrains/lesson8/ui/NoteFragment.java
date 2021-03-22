@@ -46,10 +46,8 @@ public class NoteFragment extends Fragment {
         TextInputEditText titleText = view.findViewById(R.id.note_title);
         TextInputEditText contentText = view.findViewById(R.id.note_content);
         TextView dateOfCreationText = view.findViewById(R.id.note_date_of_creation);
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy",
-                Locale.getDefault());
-        dateOfCreationText.setText(String.format("%s: %s", "Дата создания",
-                formatter.format(note.getCreationDate().getTime())));
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy", Locale.getDefault());
+        dateOfCreationText.setText(String.format("%s: %s", "Created", formatter.format(note.getCreationDate().getTime())));
         titleText.setText(note.getTitle());
         contentText.setText(note.getContent());
         view.setBackgroundColor(note.getColor());

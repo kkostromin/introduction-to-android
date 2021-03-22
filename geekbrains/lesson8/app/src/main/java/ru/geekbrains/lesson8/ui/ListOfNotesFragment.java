@@ -108,7 +108,6 @@ public class ListOfNotesFragment extends Fragment {
             showNote(currentNote);
         });
         recyclerView.setAdapter(adapter);
-        //декоратор
         DividerItemDecoration itemDecoration = new DividerItemDecoration(Objects.requireNonNull(getContext()),
                 LinearLayoutManager.VERTICAL);
         itemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(getContext(), R.drawable.separator)));
