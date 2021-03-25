@@ -13,9 +13,9 @@ ___
 * [Урок 5.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson5) Интенты, активити
 * [Урок 6.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson6) Фрагменты
 * [Урок 7.](https://github.com/zurbaevi/Introduction-to-Android/tree/main/geekbrains/lesson7) Навигация через фрагменты. Основное меню. Боковое навигационное меню
-* [Урок 8. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/8) Списки. Списковые элементы
-* [Урок 9. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/9) Расширенные возможности списка. Контекстное меню. DatePicker
-* [Урок 10. In Pull request](https://github.com/zurbaevi/Introduction-to-Android/pull/10) Firestore и аутентификация через Google
+* [Урок 8. 18 янв., 20:00]() Списки. Списковые элементы
+* [Урок 9. 22 янв., 20:00]() Расширенные возможности списка. Контекстное меню. DatePicker
+* [Урок 10. 25 янв., 20:00]() Firestore и аутентификация через Google
 * [Урок 11. 29 янв., 20:00]() Диалоговые окна
 #### [Сертификат будет доступен после успешнего окончании курса]()
 ____
