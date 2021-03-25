@@ -68,21 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        MenuItem sort = menu.findItem(R.id.menu_sort);
-        sort.setOnMenuItemClickListener(item -> {
-            Toast.makeText(ru.geekbrains.lesson11.MainActivity.this, R.string.menu_sort, Toast.LENGTH_SHORT).show();
-            return true;
-        });
-        MenuItem send = menu.findItem(R.id.menu_send);
-        send.setOnMenuItemClickListener(item -> {
-            Toast.makeText(ru.geekbrains.lesson11.MainActivity.this, R.string.menu_send, Toast.LENGTH_SHORT).show();
-            return true;
-        });
-        MenuItem addPhoto = menu.findItem(R.id.menu_add_photo);
-        addPhoto.setOnMenuItemClickListener(item -> {
-            Toast.makeText(ru.geekbrains.lesson11.MainActivity.this, R.string.menu_add_photo, Toast.LENGTH_SHORT).show();
-            return true;
-        });
         return true;
     }
 }

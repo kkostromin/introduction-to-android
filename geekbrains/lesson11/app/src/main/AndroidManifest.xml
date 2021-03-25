@@ -9,9 +9,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:ignore="AllowBackup"
-        android:theme="@style/MyStyle.NoActionBar">
-        <activity android:name="ru.geekbrains.lesson11.MainActivity" android:screenOrientation="portrait">
+        android:theme="@style/MyStyle.NoActionBar"
+        tools:ignore="AllowBackup">
+        <activity
+            android:name="ru.geekbrains.lesson11.MainActivity"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
