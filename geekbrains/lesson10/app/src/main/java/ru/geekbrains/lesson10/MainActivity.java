@@ -13,21 +13,22 @@ import java.util.Objects;
 
 import ru.geekbrains.lesson10.observe.Publisher;
 import ru.geekbrains.lesson10.ui.ListOfNotesFragment;
+import ru.geekbrains.lesson10.ui.StartFragment;
 
 /**
  * @author Zurbaevi Nika
  */
 public class MainActivity extends AppCompatActivity {
-    private ru.geekbrains.lesson10.Navigation navigation;
+    private Navigation navigation;
     private Publisher publisher = new Publisher();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        navigation = new ru.geekbrains.lesson10.Navigation(getSupportFragmentManager());
+        navigation = new Navigation(getSupportFragmentManager());
         initToolbar();
-        getNavigation().addFragment(ListOfNotesFragment.newInstance(), false);
+        getNavigation().addFragment(StartFragment.newInstance(), false);
     }
 
     private void initToolbar() {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public ru.geekbrains.lesson10.Navigation getNavigation() {
+    public Navigation getNavigation() {
         return navigation;
     }
 
