@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- название заметки -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_title_id"
             android:layout_width="match_parent"
@@ -27,7 +26,6 @@
                 android:inputType="textCapSentences" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- описание заметки -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_description_id"
             android:layout_width="match_parent"
