@@ -40,6 +40,7 @@ public class StartFragment extends Fragment {
     private com.google.android.gms.common.SignInButton buttonSignIn;
     private TextView emailView;
     private MaterialButton continue_;
+    private MaterialButton skip;
 
     public static StartFragment newInstance() {
         return new StartFragment();
@@ -77,16 +78,18 @@ public class StartFragment extends Fragment {
 
     private void initView(View view) {
         buttonSignIn = view.findViewById(R.id.sign_in_button);
+        skip = view.findViewById(R.id.skip);
         buttonSignIn.setOnClickListener(v -> signIn());
         emailView = view.findViewById(R.id.email);
         continue_ = view.findViewById(R.id.continue_);
         continue_.setOnClickListener(v -> navigation.addFragment(ListOfNotesFragment.newInstance(), false));
+        skip.setOnClickListener(v -> navigation.addFragment(ListOfNotesFragment.newInstance(), false));
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(requireContext());
         if (account != null) {
             disableSign();
             updateUI(account.getEmail());
