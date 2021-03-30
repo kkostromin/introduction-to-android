@@ -47,5 +47,6 @@
     <string name="edit_description_hint">Description note</string>
     <string name="delete_note_dialog_button_no">No</string>
     <string name="confirm_delete_button">Yeap</string>
+    <string name="skip">Skip</string>
 
 </resources>
