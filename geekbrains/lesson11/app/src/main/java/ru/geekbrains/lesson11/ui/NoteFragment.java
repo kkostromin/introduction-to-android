@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +38,10 @@ public class NoteFragment extends Fragment {
     private Note note;
     private Publisher publisher;
 
-    private TextInputEditText titleText;
-    private TextInputEditText contentText;
+    private EditText titleText;
+    private EditText contentText;
+    private Button mButtonSave;
     private TextView dateOfCreationText;
-    private int color;
     private String dateOfCreation;
     private boolean isNewNote = false;
 
@@ -89,10 +91,9 @@ public class NoteFragment extends Fragment {
             populateView(view);
         }
         if (isNewNote) {
-            color = getColor();
             SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy",
                     Locale.getDefault());
-            dateOfCreation = String.format("%s: %s", "Дата создания",
+            dateOfCreation = String.format("%s: %s", "Data created",
                     formatter.format(Calendar.getInstance().getTime()));
             populateView(view);
         }
@@ -100,14 +101,12 @@ public class NoteFragment extends Fragment {
         return view;
     }
 
-    //собираем данные из views
     @Override
     public void onStop() {
         super.onStop();
         note = collectNote();
     }
 
-    //передаем данные в паблишер
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -130,15 +129,14 @@ public class NoteFragment extends Fragment {
     }
 
     private void initView(View view) {
-        titleText = view.findViewById(R.id.note_title);
-        contentText = view.findViewById(R.id.note_content);
+        titleText = view.findViewById(R.id.edit_title_id);
+        contentText = view.findViewById(R.id.edit_description_id);
         dateOfCreationText = view.findViewById(R.id.note_date_of_creation);
     }
 
     private void populateView(View view) {
         if (isNewNote) {
             dateOfCreationText.setText(dateOfCreation);
-            view.setBackgroundColor(color);
         } else {
             dateOfCreationText.setText(note.getCreationDate());
             titleText.setText(note.getTitle());
@@ -146,30 +144,12 @@ public class NoteFragment extends Fragment {
         }
     }
 
-    public int getColor() {
-        int[] colors = getResources().getIntArray(R.array.colors);
-        Random random = new Random();
-        return colors[random.nextInt(colors.length)];
-    }
-
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         MenuItem addNote = menu.findItem(R.id.menu_add_note);
         MenuItem search = menu.findItem(R.id.menu_search);
-        MenuItem sort = menu.findItem(R.id.menu_sort);
         addNote.setVisible(false);
         search.setVisible(false);
-        sort.setVisible(false);
-        MenuItem send = menu.findItem(R.id.menu_send);
-        send.setOnMenuItemClickListener(item -> {
-            Toast.makeText(getActivity(), R.string.menu_send, Toast.LENGTH_SHORT).show();
-            return true;
-        });
-        MenuItem addPhoto = menu.findItem(R.id.menu_add_photo);
-        addPhoto.setOnMenuItemClickListener(item -> {
-            Toast.makeText(getActivity(), R.string.menu_add_photo, Toast.LENGTH_SHORT).show();
-            return true;
-        });
         super.onCreateOptionsMenu(menu, inflater);
     }
 }
