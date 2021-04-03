@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         tools:ignore="AllowBackup"
         android:theme="@style/MyStyle.NoActionBar">
-        <activity android:name="ru.geekbrains.lesson10.MainActivity">
+        <activity android:name="ru.geekbrains.lesson10.MainActivity" android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -41,4 +41,6 @@
     <string name="date_of_item">date of item</string>
     <string name="menu_add_note">Add note</string>
     <string name="menu_delete_note">Delete note</string>
+    <string name="continue_">continue</string>
+    <string name="skip">Skip</string>
 </resources>

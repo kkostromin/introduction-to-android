@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 /**
- * @author Zurbaevi Nika
+ * @author Zurbaevi Nika 
  */
 public class Navigation {
     private final FragmentManager fragmentManager;
