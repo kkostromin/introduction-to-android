@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lesson1</string>
+    <string name="editText_hint">You need to enter something here</string>
+    <string name="button_text">Button</string>
+    <string name="checkbox_hint">Checkbox</string>
+    <string name="switch_hint">Switch</string>
+    <string name="editText_person_name">Enter name</string>
+    <string name="editText_phone_number">Enter phone number</string>
+    <string name="editText_number">Enter numbers</string>
+    <string name="editText_password">Here you need to enter a text password</string>
+    <string name="editText_email">Enter your email address here</string>
+    <string name="editText_date">Enter date here</string>
+    <string name="title_activity_main2">MainActivity2</string>
+</resources>
